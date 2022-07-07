@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-#from flask_cors import CORS
+from flask_cors import CORS
 #from flask_pymongo import PyMongo
 from marshmallow import Schema, ValidationError,fields
 #from bson.json_util import dumps
@@ -16,7 +16,7 @@ load_dotenv()
 info = {}
 
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
 #setup location of database
 #app.config["MONGO_URI"] = os.getenv("MONGO_CONNECTION_STRING") 
 #mongo = PyMongo(app)
