@@ -66,7 +66,7 @@ def add_new_tank():
 # return {"led": status, "msg": "Data was saved in database successfully", "date": "current_time"} 
 
 
-if __name__ == '__main__' and os.getenv("ENVIRONMENT")=="dev":
+if __name__ == '__main__':
   app.run(debug=True, port=3000, host="0.0.0.0")
 
 

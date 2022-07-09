@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:3000 index:app
+web: gunicorn -b 0.0.0.0:$PORT index:app
