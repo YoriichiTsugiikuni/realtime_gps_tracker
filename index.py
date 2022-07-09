@@ -61,7 +61,7 @@ def add_new_tank():
     # }
 
 #     now = datetime.now()
-#     current_time = now.strftime("%H:%M:%S")
+#     current_time = now.strftime("%H:%M:%S");
     
 # return {"led": status, "msg": "Data was saved in database successfully", "date": "current_time"} 
 
