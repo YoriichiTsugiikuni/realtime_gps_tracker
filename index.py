@@ -32,7 +32,7 @@ class TankSchema(Schema):
 
 
 @app.route("/tank", methods = ["POST"])
-def add_new_tank(id):
+def add_new_tank():
     request_dict = request.json
     try: 
         new_gps = TankSchema().load(request_dict)
