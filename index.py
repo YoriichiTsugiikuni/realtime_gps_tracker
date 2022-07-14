@@ -34,16 +34,14 @@ class TankSchema(Schema):
 @app.route("/tank", methods = ["POST"])
 def add_new_tank():
     request_dict = request.json
-    try: 
-        new_gps = TankSchema().load(request_dict)
-        gps_document=mongo.db.gps.insert_one(new_gps)
-        gps_id=gps_document.inserted_id
-        gps=mongo.db.gps_data.find_one({"_id":gps_id})
-        gps_json=loads(dumps(gps))
+
+    new_gps = TankSchema().load(request_dict)
+    gps_document=mongo.db.gps.insert_one(new_gps)
+    gps_id=gps_document.inserted_id
+    gps=mongo.db.gps_data.find_one({"_id":gps_id})
+    gps_json=loads(dumps(gps))
        
-        return jsonify(gps_json)
-    except ValidationError as err:
-        return(err.messages, 400)
+    return jsonify(gps_json)
 
 
     
