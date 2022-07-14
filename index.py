@@ -38,7 +38,7 @@ def add_new_tank(id):
         new_gps = TankSchema().load(request_dict)
         gps_document=mongo.db.gps.insert_one(new_gps)
         gps_id=gps_document.inserted_id
-        gps=mongo.db.gps.find_one({"_id":gps_id})
+        gps=mongo.db.gps_data.find_one({"_id":gps_id})
         gps_json=loads(dumps(gps))
        
         return jsonify(gps_json)
