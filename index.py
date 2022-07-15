@@ -7,9 +7,9 @@ from json import loads
 import os
 from dotenv import load_dotenv
 from datetime import datetime
-from flask_googlemaps import GoogleMaps
-from flask import Flask, render_template 
-from flask_googlemaps import Map
+#from flask_googlemaps import GoogleMaps
+#from flask import Flask, render_template 
+#from flask_googlemaps import Map
 
 
 
@@ -25,7 +25,7 @@ CORS(app)
 #setup location of database
 app.config["MONGO_URI"] = "mongodb+srv://romaine:hinokami@cluster0.uo3raz6.mongodb.net/?retryWrites=true&w=majority" 
 mongo = PyMongo(app)
-GoogleMaps(app, key="8JZ7i18MjFuM35dJHq70n3Hx4")
+
 
 
 #Rules database information has to conform to
