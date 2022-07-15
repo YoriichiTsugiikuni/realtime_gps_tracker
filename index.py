@@ -23,8 +23,9 @@ info = {}
 app = Flask(__name__)
 CORS(app)
 #setup location of database
-app.config["MONGO_URI"] = "mongodb+srv://romaine:hinokami@cluster0.uo3raz6.mongodb.net/?retryWrites=true&w=majority" 
+app.config["MONGO_URI"] = os.getenv("mongostring") 
 mongo = PyMongo(app)
+#GoogleMaps(app, key="AIzaSyDywRQDYl4bXm3bR58kkz2psPkO5sDZVTE")
 
 
 
@@ -47,33 +48,6 @@ def add_new_tank():
     gps_json=loads(dumps(gps))
        
     return jsonify(gps_json)
-
-
-    
-    # tank_document = mongo.db.tanks.insert_one(new_tank)
-    # tank_id = tank_document.inserted_id
-
-    # tank = mongo.db.tanks.find_one({"_id": tank_id})
-
-    # tank_json = loads(dumps(tank))
-
-    # status = False
-    # if TankSchema.percentage_full >=80 :
-    #     if TankSchema.percentage_full<=100 :
-    #     {
-    #         status = True
-    #     }
-
-    #     else:
-    #     {
-    #         status = False
-    #     }
-    # }
-
-#     now = datetime.now()
-#     current_time = now.strftime("%H:%M:%S")
-    
-# return {"led": status, "msg": "Data was saved in database successfully", "date": "current_time"} 
 
 
 if __name__ == '__main__':
