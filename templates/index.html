@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #map_canvas {
+      height: 500px;
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map_canvas"></div>
+  <div id="status"></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDywRQDYl4bXm3bR58kkz2psPkO5sDZVTE&libraries=geometry">
+  </script>
+  <script>
+    function initialize() {
+      var infowindow = new google.maps.InfoWindow();
+      var map = new google.maps.Map(
+        document.getElementById('map_canvas'), {
+        center: new google.maps.LatLng(18.455177, 77.584731),
+        zoom: 2,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      function addMarker(lat, long, name, content) {
+        var info = content;
+        var message = name;
+        var point = new google.maps.LatLng(lat, long);
+        var newmarker = new google.maps.Marker({
+          position: point,
+          map: map,
+          title: name
+        });
+        // take this block of code out and I get all the markers fine 
+        google.maps.event.addListener(newmarker, 'click', function (evt) {
+          infowindow.setContent(info)
+          infowindow.open(map, newmarker)
+        });
+      }
+
+      // get coords from backend
+
+      var url="http://localhost:3000/tank";
+      window.onload=function(){
+        var getCoords ={
+          method: "GET",
+        };
+
+
+
+        fetch(url,getCoords).then(data =>{
+          var Coords = response.json();
+          console.log(data);
+        });
+      }
+
+      //replace hardcoded content of markers variable below with coords from back end
+
+      var markers = [{ lat: 18.00759, long: -76.74419, name: "name1", url: "http://1.google.com" },
+      { lat: 18.00731, long: -76.74481, name: "name2", url: "http://2.google.com" },
+      { lat: 18.00717, long: -76.745112, name: "name3", url: "http://3.google.com" }];
+      var bounds = new google.maps.LatLngBounds();
+      for (var i = 0; i < markers.length; i++) {
+        addMarker(markers[i].lat, markers[i].long, markers[i].name, markers[i].url);
+        bounds.extend(new google.maps.LatLng(markers[i].lat, markers[i].long));
+      }
+      map.fitBounds(bounds);
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+
+
+
+</body>
+
+</html>
