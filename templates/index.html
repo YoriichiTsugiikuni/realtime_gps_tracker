@@ -53,20 +53,21 @@
       .then(response => response.json())
       .then(data => {
         console.log(data);
+
+        //replace hardcoded content of markers variable below with coords from back end
+
+        
+        var markers = data;
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+          addMarker(markers[i].lat, markers[i].long);
+          bounds.extend(new google.maps.LatLng(markers[i].lat, markers[i].long));
+        }
+        map.fitBounds(bounds);
       });
       
 
-      //replace hardcoded content of markers variable below with coords from back end
-
-      var markers = [{ lat: 18.00759, long: -76.74419, name: "name1", url: "http://1.google.com" },
-      { lat: 18.00731, long: -76.74481, name: "name2", url: "http://2.google.com" },
-      { lat: 18.00717, long: -76.745112, name: "name3", url: "http://3.google.com" }];
-      var bounds = new google.maps.LatLngBounds();
-      for (var i = 0; i < markers.length; i++) {
-        addMarker(markers[i].lat, markers[i].long, markers[i].name, markers[i].url);
-        bounds.extend(new google.maps.LatLng(markers[i].lat, markers[i].long));
-      }
-      map.fitBounds(bounds);
+      
 
     }
 
