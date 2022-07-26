@@ -35,12 +35,17 @@ class TankSchema(Schema):
     long = fields.String(required=True)
     dateTime = fields.DateTime(required=True)
 
+@app.route("/data",methods = ["GET"])
+def dataGET(): 
+    kokushi = mongo.db.gps.find()
+    juuni_kizuki = loads(dumps(kokushi))
+    return jsonify(juuni_kizuki)
 
 @app.route("/tank", methods = ["POST"])
 def add_new_tank():
     request_dict = request.json
     new_gps = TankSchema().load(request_dict)
-    
+
     gps_document=mongo.db.gps.insert_one(new_gps)
     gps_id=gps_document.inserted_id
 

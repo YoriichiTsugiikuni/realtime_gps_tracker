@@ -47,19 +47,14 @@
 
       // get coords from backend
 
-      var url="http://localhost:3000/tank";
-      window.onload=function(){
-        var getCoords ={
-          method: "GET",
-        };
+      var url="http://romgpstracker.herokuapp.com/data";
 
-
-
-        fetch(url,getCoords).then(data =>{
-          var Coords = response.json();
-          console.log(data);
-        });
-      }
+      fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+      
 
       //replace hardcoded content of markers variable below with coords from back end
 
