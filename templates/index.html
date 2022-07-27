@@ -64,6 +64,18 @@
           bounds.extend(new google.maps.LatLng(markers[i].lat, markers[i].long));
         }
         map.fitBounds(bounds);
+
+        const travel=data;
+        const travelPath=new google.maps.Polyline({
+          path: data,
+          geodesic:true,
+          strokeColor: "#0000FF",
+          strokeOpacity:1.0,
+          strokeWeight: 2,
+        });
+
+        travelPath.setMap(map);
+
       });
       
 
