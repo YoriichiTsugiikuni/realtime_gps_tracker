@@ -60,14 +60,16 @@
         var markers = data;
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markers.length; i++) {
-          addMarker(markers[i].lat, markers[i].long);
+           addMarker(markers[i].lat, markers[i].long);
           bounds.extend(new google.maps.LatLng(markers[i].lat, markers[i].long));
         }
         map.fitBounds(bounds);
 
-        const travel=data;
+        var path_data = data.map(point => ({ lat: parseFloat(point.lat), lng: parseFloat(point.long) }))
+
+        // const travel=data;
         const travelPath=new google.maps.Polyline({
-          path: data,
+          path: path_data,
           geodesic:true,
           strokeColor: "#0000FF",
           strokeOpacity:1.0,
