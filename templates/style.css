@@ -1,0 +1,121 @@
+
+body {  
+    /*background: rgba(158, 156, 156, 0.534);*/
+    display: flex;
+    margin: auto;
+    background-image: url('assets\jackson-hendry-eodA_8CTOFo-unsplash.jpg');
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+    
+}
+
+header{
+    display:flex; 
+    justify-content: center;
+    text-align: center;
+    font-family: monospace;
+    font-size: 40px;
+    color: rgb(84, 198, 243);
+    padding: 10px;   
+    text-shadow: 1px 1px 2px black;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-rows: auto;
+    justify-content: center; 
+    background-image: url('assets\jackson-hendry-eodA_8CTOFo-unsplash.jpg');
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */       
+} /*review*/
+
+
+.subcontainer{
+    display: flex;
+    justify-content: center;     
+    background-image: url('assets\jackson-hendry-eodA_8CTOFo-unsplash.jpg');
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */         
+}
+
+
+
+
+
+.usercard{
+    background: rgb(84, 198, 243);
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    width: 940px;
+    height: 220px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 2px black, 5px 4px 8px 5px rgba(81, 129, 201, 0.2);
+    text-align: left;
+}
+
+.usercard h2 { 
+    display:flex; 
+    justify-content: left;
+    font-family: monospace;
+    color: rgb(253, 253, 253);
+    padding: 2px;   
+}
+
+
+.cropped {
+    margin-top: 35px;
+    margin-left: 150px;
+    width: 150px; /* width of container */
+    height: 150px; /* height of container */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 5px solid rgb(158, 156, 156);
+}
+
+.cropped img {
+    object-fit: cover;
+    text-align: center;
+   width: 150px;
+   height: 200px;
+   
+}
+
+
+
+span {
+    display:flex;
+    text-align: left;
+    padding:3px;
+    font-family: Lucida Sans Regular;
+    font-size: 13;
+}
+
+meter{  
+    width: 150px;  
+    height: 30px;  
+  } 
+
+#circle{
+    margin-left: 5px;
+    height: 14px;
+    width: 14px;
+    border-radius: 14px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb(255, 0, 119);
+}
+
+#map_canvas {
+    height: 700px;
+    width: 700px;
+    border-radius: 700px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+  }
